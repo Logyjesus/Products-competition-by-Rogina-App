@@ -19,7 +19,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 10px;
         }
 
         .container {
@@ -28,7 +28,7 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
             max-width: 1200px;
             width: 100%;
-            padding: 40px;
+            padding: 20px;
             animation: fadeIn 0.5s ease-in;
         }
 
@@ -40,15 +40,16 @@
         h1 {
             color: #667eea;
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.5em;
+            margin-bottom: 20px;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
         }
 
         h2 {
             color: #764ba2;
-            margin: 30px 0 20px;
+            margin: 20px 0 15px;
             padding-bottom: 10px;
             border-bottom: 3px solid #667eea;
+            font-size: clamp(1.2rem, 4vw, 1.8rem);
         }
 
         .auth-container {
@@ -57,7 +58,7 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         label {
@@ -65,6 +66,7 @@
             margin-bottom: 8px;
             color: #333;
             font-weight: bold;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         input, select, textarea {
@@ -72,7 +74,7 @@
             padding: 12px;
             border: 2px solid #ddd;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             transition: border-color 0.3s;
         }
 
@@ -89,13 +91,14 @@
         button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 12px 30px;
+            padding: 12px 20px;
             border: none;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: clamp(0.9rem, 2vw, 1rem);
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
             margin: 5px;
+            width: auto;
         }
 
         button:hover {
@@ -115,17 +118,27 @@
             background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
         }
 
+        .btn-success {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
             margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .product-card {
             background: #f8f9fa;
             border-radius: 15px;
-            padding: 20px;
+            padding: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
@@ -145,11 +158,14 @@
         .product-card h3 {
             color: #667eea;
             margin-bottom: 10px;
+            font-size: clamp(1rem, 3vw, 1.3rem);
         }
 
         .product-card p {
             color: #666;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            word-wrap: break-word;
         }
 
         .votes-count {
@@ -160,6 +176,7 @@
             display: inline-block;
             margin: 10px 0;
             font-weight: bold;
+            font-size: clamp(0.85rem, 2vw, 1rem);
         }
 
         .user-info {
@@ -171,22 +188,34 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .user-info {
+                flex-direction: column;
+                text-align: center;
+            }
         }
 
         .table-container {
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            min-width: 500px;
         }
 
         th, td {
             padding: 12px;
             text-align: right;
             border-bottom: 1px solid #ddd;
+            font-size: clamp(0.85rem, 2vw, 1rem);
         }
 
         th {
@@ -202,15 +231,24 @@
         .winner-card {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
-            padding: 30px;
+            padding: 20px;
             border-radius: 15px;
             text-align: center;
             margin: 20px 0;
         }
 
         .winner-card h3 {
-            font-size: 2em;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             margin-bottom: 10px;
+        }
+
+        .winner-card img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin: 15px 0;
         }
 
         .hidden {
@@ -222,6 +260,17 @@
             gap: 10px;
             margin-bottom: 20px;
             flex-wrap: wrap;
+        }
+
+        .tabs button {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        @media (max-width: 480px) {
+            .tabs button {
+                flex: 1 1 100%;
+            }
         }
 
         .file-input-wrapper {
@@ -246,6 +295,7 @@
             display: block;
             text-align: center;
             transition: all 0.3s;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .file-input-label:hover {
@@ -264,7 +314,6 @@
 
         .btn-delete {
             background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-            margin-right: 5px;
         }
 
         .modal {
@@ -277,14 +326,16 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             animation: fadeIn 0.3s ease-in;
+            overflow-y: auto;
         }
 
         .modal-content {
             background-color: white;
-            margin: 5% auto;
-            padding: 30px;
+            margin: 20px auto;
+            padding: 20px;
             border-radius: 15px;
             max-width: 500px;
+            width: calc(100% - 40px);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             animation: slideDown 0.3s ease-out;
         }
@@ -304,6 +355,301 @@
 
         .close:hover {
             color: #000;
+        }
+
+        .reset-info {
+            background: #fff3cd;
+            border: 2px solid #ffc107;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+        }
+
+        .countdown {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-weight: bold;
+            color: #764ba2;
+            margin: 10px 0;
+        }
+
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .button-group button {
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .info-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(102, 126, 234, 0.5);
+            transition: all 0.3s;
+            z-index: 999;
+            border: 3px solid white;
+        }
+
+        .info-icon:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 8px 35px rgba(102, 126, 234, 0.7);
+        }
+
+        .info-page {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 9999;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .info-content {
+            background: white;
+            max-width: 900px;
+            margin: 30px auto;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+            animation: slideDown 0.4s ease-out;
+        }
+
+        .info-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .info-header h1 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-header p {
+            margin: 5px 0;
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            opacity: 0.95;
+        }
+
+        .close-info {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .close-info:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 30px 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .logo-box {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            width: 120px;
+            height: 142px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+
+        .logo-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .logo-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .info-body {
+            padding: 40px 30px;
+        }
+
+        .info-section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            border-right: 5px solid #667eea;
+            transition: transform 0.3s;
+        }
+
+        .info-section:hover {
+            transform: translateX(-5px);
+        }
+
+        .info-section h3 {
+            color: #667eea;
+            margin: 0 0 15px 0;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-section p {
+            margin: 8px 0;
+            color: #333;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            line-height: 1.8;
+        }
+
+        .info-section strong {
+            color: #764ba2;
+            font-weight: bold;
+        }
+
+        .developer-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.4);
+        }
+
+        .developer-card h2 {
+            color: white;
+            margin: 0 0 15px 0;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+        }
+
+        .developer-card p {
+            margin: 10px 0;
+            font-size: clamp(1.1rem, 3vw, 1.4rem);
+        }
+
+        .supervisor-card {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(17, 153, 142, 0.4);
+        }
+
+        .supervisor-card h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+        }
+
+        .supervisor-card p {
+            margin: 0;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+        }
+
+        .project-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            margin-bottom: 30px;
+        }
+
+        .project-info h3 {
+            color: white;
+            margin: 0 0 10px 0;
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+        }
+
+        .project-info p {
+            margin: 5px 0;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .product-card button,
+            button {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .button-group button {
+                flex: 1 1 100%;
+            }
+
+            .info-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 15px;
+                left: 15px;
+            }
+
+            .logos-container {
+                gap: 15px;
+            }
+
+            .logo-box {
+                width: 80px;
+                height: 80px;
+            }
+
+            .info-body {
+                padding: 25px 20px;
+            }
+
+            .info-section {
+                padding: 20px 15px;
+            }
         }
     </style>
 </head>
@@ -430,31 +776,40 @@
                 <button onclick="logout()" class="btn-danger">تسجيل الخروج</button>
             </div>
 
-            <h2>إضافة منتج جديد</h2>
-            <div class="form-group">
-                <label>اسم المنتج</label>
-                <input type="text" id="productName" placeholder="أدخل اسم المنتج">
+            <div class="tabs">
+                <button onclick="showSellerTab('myproducts')">منتجاتي</button>
+                <button onclick="showSellerTab('winner')">الفائز</button>
             </div>
-            <div class="form-group">
-                <label>وصف المنتج</label>
-                <textarea id="productDescription" placeholder="أدخل وصف المنتج"></textarea>
-            </div>
-            <div class="form-group">
-                <label>صورة المنتج</label>
-                <div class="file-input-wrapper">
-                    <label for="productImage" class="file-input-label">
-                        📁 اختر صورة المنتج
-                    </label>
-                    <input type="file" id="productImage" accept="image/*">
-                </div>
-            </div>
-            <button onclick="uploadProduct()">رفع المنتج</button>
 
-            <h2>منتجاتي</h2>
-            <div class="form-group">
-                <input type="text" id="searchSellerProducts" placeholder="🔍 ابحث في منتجاتك..." onkeyup="searchSellerProducts()">
+            <div id="sellerMyProducts">
+                <h2>إضافة منتج جديد</h2>
+                <div class="form-group">
+                    <label>اسم المنتج</label>
+                    <input type="text" id="productName" placeholder="أدخل اسم المنتج">
+                </div>
+                <div class="form-group">
+                    <label>وصف المنتج</label>
+                    <textarea id="productDescription" placeholder="أدخل وصف المنتج"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>صورة المنتج</label>
+                    <div class="file-input-wrapper">
+                        <label for="productImage" class="file-input-label">
+                            📁 اختر صورة المنتج
+                        </label>
+                        <input type="file" id="productImage" accept="image/*">
+                    </div>
+                </div>
+                <button onclick="uploadProduct()">رفع المنتج</button>
+
+                <h2>منتجاتي</h2>
+                <div class="form-group">
+                    <input type="text" id="searchSellerProducts" placeholder="🔍 ابحث في منتجاتك..." onkeyup="searchSellerProducts()">
+                </div>
+                <div class="products-grid" id="sellerProductsGrid"></div>
             </div>
-            <div class="products-grid" id="sellerProductsGrid"></div>
+
+            <div id="sellerWinner" class="hidden"></div>
         </div>
 
         <!-- User Dashboard -->
@@ -514,10 +869,94 @@
                 <button onclick="closeEditModal()" class="btn-secondary">إلغاء</button>
             </div>
         </div>
+
+        <!-- Info Icon -->
+        <div id="infoIcon" class="info-icon hidden" onclick="openInfoPage()">
+            ℹ️
+        </div>
+
+        <!-- Info Page -->
+        <div id="infoPage" class="info-page">
+            <div class="info-content">
+                <div class="info-header">
+                    <span class="close-info" onclick="closeInfoPage()">&times;</span>
+                    <h1>🏆 مسابقة المنتجات</h1>
+                    <p>نظام إلكتروني متكامل لإدارة المسابقات والتصويت</p>
+                    
+                    <div class="logos-container">
+                        <div class="logo-box">
+                            <div style="font-size: 60px;"><img src="https://tse2.mm.bing.net/th/id/OIP.FgvAq778CDgRZnR6ikkB6AAAAA?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="🎓جامة قنا"></div>
+                        </div>
+                        <div class="logo-box">
+                            <div style="font-size: 60px;"><img src="https://tse1.mm.bing.net/th/id/OIP.kppON8tQ3AAZ7Ewp3GGaVwHaHW?cb=ucfimg2&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="🏛️كلية تربية نوعية"></div>
+                        </div>
+                        <div class="logo-box">
+                            <div style="font-size: 60px;"><img src="https://www.svu.edu.eg/faculties/sed/wp-content/uploads/2022/07/Asset-10.png" alt="💻 قسم تكنولوجيا التعليم والمعلومات"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-body">
+                    <div class="developer-card">
+                        <h2>👨‍💻 المطور</h2>
+                        <p style="font-size: clamp(1.3rem, 4vw, 1.8rem); font-weight: bold; margin: 15px 0;">
+                            روجينا روماني محارب بولس
+                        </p>
+                        <p>🎓 الفرقة الرابعة</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>🏫 معلومات أكاديمية</h3>
+                        <p><strong>🎓 الكلية:</strong> كلية التربية النوعية</p>
+                        <p><strong>📚 الشعبة:</strong> معلم حاسب آلي</p>
+                        <p><strong>📖 المادة:</strong> تصميم مواقع باستخدام الذكاء الاصطناعي</p>
+                        <p><strong>🏛️ الجامعة:</strong> جامعة قنا</p>
+                        <p><strong>📍 القسم:</strong> قسم تكنولوجيا التعليم</p>
+                    </div>
+
+                    <div class="supervisor-card">
+                        <h3>👨‍🏫 تحت إشراف</h3>
+                        <p style="font-size: clamp(1.2rem, 4vw, 1.5rem); font-weight: bold;">
+                            د. علي فاروق
+                        </p>
+                    </div>
+
+                    <div class="project-info">
+                        <h3>📱 عن المشروع</h3>
+                        <p>نظام شامل لإدارة مسابقات المنتجات مع نظام تصويت إلكتروني</p>
+                        <p>✨ يدعم ثلاثة أنواع من المستخدمين: المسؤول، البائع، والمستخدم العادي</p>
+                        <p>🏆 نظام تصويت عادل مع إمكانية عرض الفائزين</p>
+                        <p>⏰ نظام عد تنازلي لإدارة المسابقات</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>🎯 المميزات الرئيسية</h3>
+                        <p>✅ <strong>للمسؤول:</strong> إدارة كاملة للمستخدمين والمنتجات والأصوات</p>
+                        <p>✅ <strong>للبائع:</strong> إضافة وتعديل وحذف المنتجات الخاصة به</p>
+                        <p>✅ <strong>للمستخدم:</strong> التصويت للمنتجات ومشاهدة النتائج</p>
+                        <p>✅ <strong>نظام ذكي:</strong> كشف التعادل وعرض جميع الفائزين</p>
+                        <p>✅ <strong>تصميم متجاوب:</strong> يعمل على جميع الأجهزة</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>🛠️ التقنيات المستخدمة</h3>
+                        <p>💻 <strong>HTML5 & CSS3:</strong> بناء واجهة مستخدم حديثة ومتجاوبة</p>
+                        <p>⚡ <strong>JavaScript:</strong> برمجة التفاعلات والوظائف الديناميكية</p>
+                        <p>🗄️ <strong>Supabase:</strong> قاعدة بيانات سحابية وتخزين الملفات</p>
+                        <p>🤖 <strong>Claude AI:</strong> مساعد في التطوير والتصميم</p>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border-radius: 15px;">
+                        <p style="font-size: clamp(1rem, 3vw, 1.2rem); color: #667eea; margin: 0;">
+                            🎓 مشروع تخرج مادة تصميم مواقع- العام الجامعي 2024/2025
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
-        // Supabase Configuration
         const SUPABASE_URL = 'https://rclvmnkwlmcvlvdmvxak.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJjbHZtbmt3bG1jdmx2ZG12eGFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ2NDQxMzQsImV4cCI6MjA4MDIyMDEzNH0.5dxuyOBhyGd9H8Xt30Yxh3bfYjVOZ4YeAkcZOXXDWD0';
         
@@ -527,8 +966,9 @@
         let allProducts = [];
         let allUsers = [];
         let editingProductId = null;
+        let countdownInterval = null;
+        let winnerAnnouncementTime = null;
 
-        // Authentication Functions
         async function register() {
             const email = document.getElementById('authEmail').value.trim();
             const password = document.getElementById('authPassword').value;
@@ -580,6 +1020,7 @@
                 }
 
                 currentUser = data;
+                await loadWinnerAnnouncementTime();
                 showDashboard(data.role);
             } catch (error) {
                 alert('خطأ في تسجيل الدخول: ' + error.message);
@@ -588,14 +1029,28 @@
 
         function logout() {
             currentUser = null;
+            winnerAnnouncementTime = null;
+            if (countdownInterval) clearInterval(countdownInterval);
             document.getElementById('authScreen').classList.remove('hidden');
             document.getElementById('adminScreen').classList.add('hidden');
             document.getElementById('sellerScreen').classList.add('hidden');
             document.getElementById('userScreen').classList.add('hidden');
+            document.getElementById('infoIcon').classList.add('hidden');
+        }
+
+        function openInfoPage() {
+            document.getElementById('infoPage').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInfoPage() {
+            document.getElementById('infoPage').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
         function showDashboard(role) {
             document.getElementById('authScreen').classList.add('hidden');
+            document.getElementById('infoIcon').classList.remove('hidden');
             
             if (role === 'admin') {
                 document.getElementById('adminScreen').classList.remove('hidden');
@@ -604,7 +1059,7 @@
             } else if (role === 'seller') {
                 document.getElementById('sellerScreen').classList.remove('hidden');
                 document.getElementById('sellerEmail').textContent = currentUser.email;
-                loadSellerProducts();
+                showSellerTab('myproducts');
             } else {
                 document.getElementById('userScreen').classList.remove('hidden');
                 document.getElementById('userEmail').textContent = currentUser.email;
@@ -612,7 +1067,6 @@
             }
         }
 
-        // Admin Functions
         async function showAdminTab(tab) {
             document.getElementById('adminUsers').classList.add('hidden');
             document.getElementById('adminProducts').classList.add('hidden');
@@ -632,6 +1086,19 @@
             } else if (tab === 'winner') {
                 document.getElementById('adminWinner').classList.remove('hidden');
                 await showWinner('admin');
+            }
+        }
+
+        async function showSellerTab(tab) {
+            document.getElementById('sellerMyProducts').classList.add('hidden');
+            document.getElementById('sellerWinner').classList.add('hidden');
+
+            if (tab === 'myproducts') {
+                document.getElementById('sellerMyProducts').classList.remove('hidden');
+                await loadSellerProducts();
+            } else if (tab === 'winner') {
+                document.getElementById('sellerWinner').classList.remove('hidden');
+                await showWinner('seller');
             }
         }
 
@@ -820,7 +1287,6 @@
             }
         }
 
-        // Seller Functions
         async function uploadProduct() {
             const name = document.getElementById('productName').value.trim();
             const description = document.getElementById('productDescription').value.trim();
@@ -980,13 +1446,17 @@
                 if (error) throw error;
 
                 alert('تم حذف المنتج بنجاح!');
-                await loadSellerProducts();
+                
+                if (currentUser.role === 'seller') {
+                    await loadSellerProducts();
+                } else if (currentUser.role === 'admin') {
+                    await loadAllProducts('admin');
+                }
             } catch (error) {
                 alert('خطأ في حذف المنتج: ' + error.message);
             }
         }
 
-        // User Functions
         async function showUserTab(tab) {
             document.getElementById('userProducts').classList.add('hidden');
             document.getElementById('userWinner').classList.add('hidden');
@@ -1025,7 +1495,6 @@
 
         async function voteForProduct(productId) {
             try {
-                // التحقق من وجود أي تصويت سابق للمستخدم
                 const { data: existingVotes, error: checkError } = await supabase
                     .from('votes')
                     .select('*')
@@ -1033,24 +1502,20 @@
 
                 if (checkError) throw checkError;
 
-                // إذا كان المستخدم قد صوت من قبل
                 if (existingVotes && existingVotes.length > 0) {
                     const previousVote = existingVotes[0];
                     
-                    // إذا صوت على نفس المنتج
                     if (previousVote.product_id === productId) {
                         alert('⚠️ لقد صوتت على هذا المنتج بالفعل!');
                         return;
                     }
                     
-                    // إذا صوت على منتج آخر، اسأله إذا أراد تغيير صوته
                     const changeVote = confirm('لقد صوتت على منتج آخر من قبل. هل تريد تغيير صوتك لهذا المنتج؟');
                     
                     if (!changeVote) {
                         return;
                     }
                     
-                    // حذف الصوت القديم
                     const { error: deleteError } = await supabase
                         .from('votes')
                         .delete()
@@ -1059,7 +1524,6 @@
                     if (deleteError) throw deleteError;
                 }
 
-                // إضافة الصوت الجديد
                 const { data, error } = await supabase
                     .from('votes')
                     .insert([{
@@ -1077,7 +1541,6 @@
             }
         }
 
-        // Helper Functions
         function createProductCard(product, voteCount, view) {
             const card = document.createElement('div');
             card.className = 'product-card';
@@ -1087,8 +1550,14 @@
                 buttons = `<button onclick="voteForProduct(${product.id})">❤️ صوّت لهذا المنتج</button>`;
             } else if (view === 'seller') {
                 buttons = `
-                    <button class="btn-edit" onclick="openEditModal(${product.id})">✏️ تعديل</button>
-                    <button class="btn-delete" onclick="deleteProduct(${product.id})">🗑️ حذف</button>
+                    <div class="button-group">
+                        <button class="btn-edit" onclick="openEditModal(${product.id})">✏️ تعديل</button>
+                        <button class="btn-delete" onclick="deleteProduct(${product.id})">🗑️ حذف</button>
+                    </div>
+                `;
+            } else if (view === 'admin') {
+                buttons = `
+                    <button class="btn-delete" onclick="deleteProduct(${product.id})">🗑️ حذف المنتج</button>
                 `;
             }
 
@@ -1104,6 +1573,116 @@
             return card;
         }
 
+        async function loadWinnerAnnouncementTime() {
+            try {
+                const { data, error } = await supabase
+                    .from('settings')
+                    .select('*')
+                    .eq('key', 'winner_announcement_time')
+                    .single();
+
+                if (error && error.code !== 'PGRST116') throw error;
+
+                if (data) {
+                    winnerAnnouncementTime = new Date(data.value);
+                }
+            } catch (error) {
+                console.error('خطأ في تحميل وقت الإعلان:', error);
+            }
+        }
+
+        async function setWinnerAnnouncementTime() {
+            const now = new Date();
+            const announcementTime = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+
+            try {
+                const { data: existing, error: checkError } = await supabase
+                    .from('settings')
+                    .select('*')
+                    .eq('key', 'winner_announcement_time')
+                    .single();
+
+                if (checkError && checkError.code !== 'PGRST116') throw checkError;
+
+                if (existing) {
+                    const { error } = await supabase
+                        .from('settings')
+                        .update({ value: announcementTime.toISOString() })
+                        .eq('key', 'winner_announcement_time');
+
+                    if (error) throw error;
+                } else {
+                    const { error } = await supabase
+                        .from('settings')
+                        .insert([{
+                            key: 'winner_announcement_time',
+                            value: announcementTime.toISOString()
+                        }]);
+
+                    if (error) throw error;
+                }
+
+                winnerAnnouncementTime = announcementTime;
+            } catch (error) {
+                console.error('خطأ في تعيين وقت الإعلان:', error);
+            }
+        }
+
+        async function resetCompetition() {
+            if (!confirm('هل أنت متأكد من تصفير جميع النتائج؟ سيتم حذف جميع الأصوات وبدء مسابقة جديدة.')) {
+                return;
+            }
+
+            try {
+                const { error } = await supabase
+                    .from('votes')
+                    .delete()
+                    .neq('id', 0);
+
+                if (error) throw error;
+
+                const { error: settingsError } = await supabase
+                    .from('settings')
+                    .delete()
+                    .eq('key', 'winner_announcement_time');
+
+                if (settingsError) throw settingsError;
+
+                winnerAnnouncementTime = null;
+                if (countdownInterval) clearInterval(countdownInterval);
+
+                alert('✅ تم تصفير النتائج بنجاح!');
+                await showWinner('admin');
+            } catch (error) {
+                alert('خطأ في تصفير النتائج: ' + error.message);
+            }
+        }
+
+        function updateCountdown(container) {
+            if (!winnerAnnouncementTime) return;
+
+            const now = new Date();
+            const timeLeft = winnerAnnouncementTime - now;
+
+            if (timeLeft <= 0) {
+                if (countdownInterval) clearInterval(countdownInterval);
+                const countdownEl = container.querySelector('.countdown');
+                if (countdownEl) {
+                    countdownEl.innerHTML = '⏰ انتهى وقت التصفير - يمكن الآن تصفير النتائج';
+                }
+                return;
+            }
+
+            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            const countdownEl = container.querySelector('.countdown');
+            if (countdownEl) {
+                countdownEl.innerHTML = `⏰ الوقت المتبقي: ${hours} ساعة ${minutes} دقيقة ${seconds} ثانية`;
+            }
+        }
+
         async function showWinner(view) {
             try {
                 const { data: votes, error: votesError } = await supabase
@@ -1112,46 +1691,161 @@
 
                 if (votesError) throw votesError;
 
+                let container;
+                if (view === 'admin') {
+                    container = document.getElementById('adminWinner');
+                } else if (view === 'seller') {
+                    container = document.getElementById('sellerWinner');
+                } else {
+                    container = document.getElementById('userWinner');
+                }
+
+                if (!votes || votes.length === 0) {
+                    container.innerHTML = '<p style="text-align:center;">لا توجد أصوات بعد</p>';
+                    return;
+                }
+
                 const voteCounts = {};
                 votes.forEach(vote => {
                     voteCounts[vote.product_id] = (voteCounts[vote.product_id] || 0) + 1;
                 });
 
-                const winnerId = Object.keys(voteCounts).reduce((a, b) => 
-                    voteCounts[a] > voteCounts[b] ? a : b, null);
+                // إيجاد أعلى عدد أصوات
+                const maxVotes = Math.max(...Object.values(voteCounts));
+                
+                // إيجاد جميع المنتجات التي حصلت على أعلى عدد أصوات (في حالة التعادل)
+                const winnerIds = Object.keys(voteCounts).filter(id => voteCounts[id] === maxVotes);
 
-                if (!winnerId) {
-                    const container = view === 'admin' ? 
-                        document.getElementById('adminWinner') : 
-                        document.getElementById('userWinner');
-                    container.innerHTML = '<p style="text-align:center;">لا توجد أصوات بعد</p>';
+                if (winnerIds.length === 0) {
+                    container.innerHTML = '<p style="text-align:center;">لا يوجد فائز بعد</p>';
                     return;
                 }
 
-                const { data: winner, error } = await supabase
+                // جلب بيانات جميع المنتجات الفائزة
+                const { data: winners, error } = await supabase
                     .from('products')
                     .select('*')
-                    .eq('id', winnerId)
-                    .single();
+                    .in('id', winnerIds);
 
                 if (error) throw error;
 
-                const container = view === 'admin' ? 
-                    document.getElementById('adminWinner') : 
-                    document.getElementById('userWinner');
+                let resetSection = '';
                 
-                container.innerHTML = `
-                    <div class="winner-card">
-                        <h3>🏆 المنتج الفائز 🏆</h3>
-                        <img src="${winner.file_url}" alt="${winner.name}" style="max-width:300px;border-radius:10px;margin:20px 0;">
-                        <h2>${winner.name}</h2>
-                        <p>${winner.description}</p>
-                        <p><strong>البائع:</strong> ${winner.seller_email}</p>
-                        <div style="font-size:1.5em;margin-top:20px;">
-                            ❤️ ${voteCounts[winnerId]} صوت
+                // للمسؤول فقط: إظهار زر التفعيل أو زر التصفير
+                if (view === 'admin') {
+                    if (!winnerAnnouncementTime) {
+                        resetSection = `
+                            <div class="reset-info">
+                                <p>⚠️ لم يتم تفعيل مؤقت التصفير بعد</p>
+                                <button class="btn-success" onclick="setWinnerAnnouncementTime(); showWinner('admin');">
+                                    🕐 تفعيل مؤقت 24 ساعة
+                                </button>
+                            </div>
+                        `;
+                    } else {
+                        const now = new Date();
+                        const timeLeft = winnerAnnouncementTime - now;
+
+                        if (timeLeft > 0) {
+                            resetSection = `
+                                <div class="reset-info">
+                                    <p>سيتم إتاحة زر تصفير النتائج بعد:</p>
+                                    <div class="countdown"></div>
+                                    <p style="margin-top:10px; font-size:0.9em;">⚠️ لا يمكن تصفير النتائج قبل انتهاء 24 ساعة</p>
+                                </div>
+                            `;
+                        } else {
+                            resetSection = `
+                                <div class="reset-info" style="background: #d4edda; border-color: #28a745;">
+                                    <p style="color: #155724;">✅ يمكنك الآن تصفير النتائج وبدء مسابقة جديدة</p>
+                                    <button class="btn-danger" onclick="resetCompetition()" style="margin-top:10px;">
+                                        🔄 تصفير النتائج وبدء مسابقة جديدة
+                                    </button>
+                                </div>
+                            `;
+                        }
+                    }
+                } 
+                // للمستخدمين والبائعين: إظهار العد التنازلي فقط بدون أزرار
+                else {
+                    if (winnerAnnouncementTime) {
+                        const now = new Date();
+                        const timeLeft = winnerAnnouncementTime - now;
+
+                        if (timeLeft > 0) {
+                            resetSection = `
+                                <div class="reset-info">
+                                    <p>الوقت المتبقي لبداية مسابقة جديدة:</p>
+                                    <div class="countdown"></div>
+                                </div>
+                            `;
+                        } else {
+                            resetSection = `
+                                <div class="reset-info" style="background: #d4edda; border-color: #28a745;">
+                                    <p style="color: #155724;">⏰ انتهى وقت هذه المسابقة - سيبدأ المسؤول مسابقة جديدة قريباً</p>
+                                </div>
+                            `;
+                        }
+                    }
+                }
+                
+                // بناء HTML للمنتجات الفائزة
+                let winnersHTML = '';
+                
+                if (winnerIds.length > 1) {
+                    // في حالة التعادل
+                    winnersHTML = `
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+                            <h2 style="margin: 0; color: white;">🎊 تعادل! يوجد ${winnerIds.length} فائزين 🎊</h2>
+                            <p style="margin: 10px 0 0 0; font-size: 1.2em;">كل منهم حصل على ${maxVotes} صوت</p>
                         </div>
-                    </div>
-                `;
+                        <div class="products-grid">
+                    `;
+                    
+                    winners.forEach(winner => {
+                        winnersHTML += `
+                            <div class="winner-card">
+                                <h3>🏆 منتج فائز 🏆</h3>
+                                <img src="${winner.file_url}" alt="${winner.name}">
+                                <h2>${winner.name}</h2>
+                                <p>${winner.description}</p>
+                                <p><strong>البائع:</strong> ${winner.seller_email}</p>
+                                <div style="font-size:1.5em;margin-top:20px;">
+                                    ❤️ ${maxVotes} صوت
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    winnersHTML += '</div>';
+                } else {
+                    // فائز واحد فقط
+                    const winner = winners[0];
+                    winnersHTML = `
+                        <div class="winner-card">
+                            <h3>🏆 المنتج الفائز 🏆</h3>
+                            <img src="${winner.file_url}" alt="${winner.name}">
+                            <h2>${winner.name}</h2>
+                            <p>${winner.description}</p>
+                            <p><strong>البائع:</strong> ${winner.seller_email}</p>
+                            <div style="font-size:1.5em;margin-top:20px;">
+                                ❤️ ${maxVotes} صوت
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                container.innerHTML = winnersHTML + resetSection;
+
+                // تشغيل العد التنازلي للجميع (مسؤول، مستخدمين، بائعين)
+                if (winnerAnnouncementTime) {
+                    const now = new Date();
+                    if (winnerAnnouncementTime > now) {
+                        updateCountdown(container);
+                        if (countdownInterval) clearInterval(countdownInterval);
+                        countdownInterval = setInterval(() => updateCountdown(container), 1000);
+                    }
+                }
             } catch (error) {
                 alert('خطأ في عرض الفائز: ' + error.message);
             }
